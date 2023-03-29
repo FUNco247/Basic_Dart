@@ -12,3 +12,20 @@ void null_saftly() {
     print(apple.length); //OK
   }
 }
+
+void final_variable() {
+  final name = {"a": 1};
+  name["a"] = 2;
+}
+
+void late_variable() {
+  late final String name;
+// do somthing .... e.g. call api
+  name = "안녕";
+}
+
+void const_variable() {
+  const api_key = "1212";
+  const server_adress = "https:...";
+  // api_key = "1"  -> error
+}
