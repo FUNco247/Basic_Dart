@@ -85,3 +85,83 @@ const server_adress = "https:...";
 //No good
 const something = get_api();
 ```
+
+### 2. Data Types (data_types.dart) :
+
+**List**
+
+- 배열은 `var` 키워드로도 선언할 수 있고 `List<type>`의 형태로도 선언할 수 있습니다.
+
+```dart
+ void main() {
+  // make list
+  var list1 = [1, 2, 3, 4, 5];
+  List<int> list2 = [1, 2, 3, 4, 5];
+  print("list1 : $list1");
+  print("list2 : $list2");
+  // list1.add("6") => error
+  // list2.add("6") => error
+ }
+```
+
+- Collection if : 조건이 참이라면 배열 안에 값을 추가합니다.
+
+```dart
+void main() {
+  List<int> list3 = [1, 2, 3, 4, 5, if (true) 6];
+  print("list3 : $list3");
+}
+// list3 : [1, 2, 3, 4, 5, 6]
+```
+
+- Collection for : 배열을 참조하여 값을 추가합니다.
+
+```dart
+void main() {
+  // Collection for
+  List<String> animal_in_house = ["dog", "cat"];
+  List<String> animal_in_zoo = ["lion", "tiger"];
+  List<String> all_animal = [
+    for (var animal in animal_in_house) "🏠 $animal",
+    for (var animal in animal_in_zoo) "🎉 $animal"
+  ];
+  print(all_animal);
+  //[🏠 dog, 🏠 cat, 🎉 lion, 🎉 tiger]
+}
+```
+
+**Map**
+
+- Map은 자바스크립트의 object, 파이썬은 dictionary와 같습니다.
+- 맵은 `var` 또는 `Map<type_of_key, type_of_value>` 로 선언할 수 있습니다.
+
+```dart
+Map<String, int> score = {"math" : 90, "music" : 80, "english" : 70};
+```
+
+- 만약 아래 코드와 같이 `value`가 여러가지 타입을 가진다면 Dart는 value의 타입을 `Object`로 추정한다. 이는 타입스크립트의 `any`와 같다고 보면 된다. (어떤 타입이던 가능)
+
+```dart
+var player = {"name" : "haha", "age":20};
+// type of player is Map<String, Object>
+```
+
+**Set**
+
+- `Set`은 기본적으로 `List`와 같지만 `Set`안에 있는 요소들은 전부 unique 하다. 파이썬의 `tuple`과 비슷하다.
+- `Set`은 `var` 또는 `Set<type>`으로 선언할 수 있다.
+
+```dart
+void main() {
+  Set<int> arr = {1, 2, 3, 4};
+  arr.add(1);
+  arr.add(2);
+  arr.add(3);
+  arr.add(4);
+  print(arr);
+  //{1, 2, 3, 4}
+  arr.add(5);
+  print(arr);
+  //{1, 2, 3, 4, 5}
+}
+```
