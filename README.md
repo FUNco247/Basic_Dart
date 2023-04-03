@@ -165,3 +165,49 @@ void main() {
   //{1, 2, 3, 4, 5}
 }
 ```
+
+### 3. functions.dart
+
+Dart에서 함수는 일급 객체로 취급되어 변수에 할당하거나, 다른 함수에 매개변수로 전달하거나, 다른 함수에서 값을 반환하는 것이 가능합니다.
+
+다음은 Dart에서 함수를 사용하는 예제입니다:
+
+- 하나의 매개변수를 가진 기본 함수: 첫 번째 예제는 하나의 매개변수를 가진 기본 함수를 사용하는 방법을 보여줍니다. 이 함수는 이름 매개변수를 받아 사람을 인사하는 문자열을 반환합니다.
+
+```dart
+String hello(String name) {
+  return "안녕하세요 $name님";
+}
+```
+
+- 여러 개의 매개변수를 가진 함수:두 번째 예제는 여러 개의 매개변수를 가진 함수를 사용하는 방법을 보여줍니다. 이 함수는 이름과 나이 매개변수를 받아 사람을 설명하는 문자열을 반환합니다.
+
+```dart
+String unnamedParams(String name, int age) {
+  return "$name님은 $age살 입니다.";
+}
+```
+
+- 선택적 매개변수를 가진 함수:세 번째 예제는 선택적 매개변수를 가진 함수를 사용하는 방법을 보여줍니다. 이 함수는 이름과 나이 매개변수와 선택적으로 나라 매개변수를 받습니다. 나라 매개변수가 전달되지 않으면 기본값인 "한국"이 사용됩니다.
+
+```dart
+String optionalUnnamedParams(String name, int age, [String? country = "한국"]) {
+  return "$name님은 $age살이고 $country에서 왔습니다.";
+}
+```
+
+- 이름 있는 매개변수를 가진 함수: 네 번째와 다섯 번째 예제는 이름 있는 매개변수를 가진 함수를 사용하는 방법을 보여줍니다. 이름 있는 매개변수를 사용하면 매개변수의 순서를 유지하지 않고 함수를 호출할 수 있습니다. namedParams1에서는 이름과 나이 매개변수에 기본값이 설정됩니다. namedParams2에서는 required 키워드를 사용하여 이름과 나이 매개변수가 함수 호출에서 필요하다는 것을 보장합니다.
+
+```dart
+String namedParams1({String name: "이름 없음", int age: 0}) {
+  return "$name님은 $age살 입니다.";
+}
+```
+
+```dart
+String namedParams2({required String name, required int age}) {
+  return "$name님은 $age살 입니다.";
+}
+```
+
+## 4. Class
