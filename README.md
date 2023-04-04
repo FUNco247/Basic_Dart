@@ -6,7 +6,7 @@
 
 <hr />
 
-### 0. hello world : main functions, semicolon
+### 0. hello world : main functions, semicolon is uper required
 
 ### 1. Variables (variables.dart) :
 
@@ -166,7 +166,7 @@ void main() {
 }
 ```
 
-### 3. functions.dart
+### 3. Functions (functions.dart)
 
 Dart에서 함수는 일급 객체로 취급되어 변수에 할당하거나, 다른 함수에 매개변수로 전달하거나, 다른 함수에서 값을 반환하는 것이 가능합니다.
 
