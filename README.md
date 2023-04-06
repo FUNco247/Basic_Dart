@@ -210,4 +210,180 @@ String namedParams2({required String name, required int age}) {
 }
 ```
 
-## 4. Class
+### 4. Class (class.dart)
+
+**Basic class examples**
+
+- 아래의 class는 기본값을 정의하는 형태로 선언하는 예시입니다.
+
+```dart
+class Player {
+  String name = "Creang";
+  int age = 20;
+  String team = "red";
+  void sayHello() {
+    print("Hello my name is $name $age yars old in $team team");
+  }
+}
+
+void main() {
+  var player = Player();
+  player.sayHello(); // Hello my name is Creang 20 yars old in red team
+}
+```
+
+- 아래는 constructor를 사용하여 인스턴스를 생성하는 예시입니다. constructor는 이름이 주어진 매개변수를 받습니다.
+
+```dart
+class Player2 {
+  String name;
+  int age;
+  String team;
+
+  Player2({
+    required this.name,
+    required this.age,
+    required this.team,
+  });
+  void sayHello() {
+    print("Hello my name is $name $age yars old in $team team");
+  }
+}
+
+void main() {
+  var player2 = Player2(name: "Creang", team: "blue", age: 20);
+  player2.sayHello(); //Hello my name is Creang 20 yars old in blue team
+}
+```
+
+- 아래는 마찬가지로 constructor를 사용하여 인스턴스를 생성하는 예시입니다. constructor는 입력 위치가 정해진 매개변수를 받습니다.
+
+```dart
+class Player3 {
+String name, team;
+int age;
+
+Player3(
+this.name,
+this.age,
+this.team,
+);
+void sayHello() {
+print("Hello my name is $name $age yars old in $team team");
+}
+}
+
+void main() {
+var player3 = Player3("Creang", 20, "purple");
+player3.sayHello(); //Hello my name is Creang 20 yars old in purple team
+}
+```
+
+**Inheritance of Class**
+상속은 기존 클래스를 기반으로 새로운 클래스를 정의할 수 있는 메커니즘입니다. 새로운 클래스는 기존 클래스의 모든 속성 및 메서드를 상속하고 새로운 속성 및 메서드를 추가하거나 기존의 것을 재정의할 수도 있습니다.
+
+- 클래스 확장 : 기존 클래스를 상속받아 새로운 클래스를 생성하려면, extends 키워드 다음에 슈퍼클래스의 이름을 사용할 수 있습니다.
+
+```dart
+class Person {
+  String name;
+
+  Person(this.name);
+
+  void sayHello() {
+    print('Hello, my name is $name');
+  }
+}
+
+class Student extends Person {
+  String major;
+
+  Student(String name, this.major) : super(name);
+
+  void sayMajor() {
+    print('My major is $major');
+  }
+}
+
+void main(){
+  var student = Student('John', '컴퓨터 과학');
+  student.sayHello(); // 출력: Hello, my name is John
+  student.sayMajor(); // 출력: My major is 컴퓨터 과학
+}
+```
+
+- 매서드의 재정의 : 서브클래스에서 슈퍼클래스로부터 메서드를 상속받을 때, 해당 메서드를 재정의하여 새로운 구현을 제공할 수 있습니다. 메서드를 재정의하려면, @override 어노테이션을 사용합니다.
+
+```dart
+class Animal {
+  void sayHello() {
+    print('Hello from the Animal class');
+  }
+}
+
+class Dog extends Animal {
+  @override
+  void sayHello() {
+    print('Hello from the Dog class');
+  }
+}
+
+void main(){
+  var dog = Dog();
+  dog.sayHello(); // 출력: Hello from the Dog class
+}
+```
+
+- super 사용 : 서브클래스에서 메서드를 재정의할 때, super 키워드를 사용하여 슈퍼클래스의 메서드를 호출할 수 있습니다.
+
+```dart
+class Person {
+  String name;
+
+  Person(this.name);
+
+  void sayHello() {
+    print('Hello, my name is $name');
+  }
+}
+
+class Student extends Person {
+  String major;
+
+  Student(String name, this.major) : super(name);
+
+  @override
+  void sayHello() {
+    super.sayHello();
+    print('I am studying $major');
+  }
+}
+
+void main(){
+var student = Student('John', '컴퓨터 과학');
+student.sayHello();
+}
+
+//출력
+//Hello, my name is John
+//I am studying 컴퓨터 과학
+```
+
+- Abstract class : 추상 클래스는 직접 인스턴스화할 수 없지만, 서브클래스에서 구현해야하는 메서드를 정의할 수 있는 클래스입니다. 추상 클래스는 abstract 키워드를 사용하여 정의할 수 있습니다.
+
+```dart
+abstract class Animal {
+  void makeSound();
+}
+
+class Dog extends Animal {
+  void makeSound() {
+    print('Bark!');
+  }
+}
+
+void main(){
+var dog = Dog();
+dog.makeSound(); // 출력: Bark!
+}
+```
